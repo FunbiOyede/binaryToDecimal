@@ -1,3 +1,6 @@
+
+// regex for binary
+
 const validate = (value) =>{
     let binaryRegex = /^[0-1]+$/g;   
     let valueResult = binaryRegex.test(value);

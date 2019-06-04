@@ -4,6 +4,9 @@ import Input from '../components/Input/Input';
 import Validate from '../helper/Validate';
 import convert from '../helper/convert';
 import Header from '../components/Header';
+
+
+
 class App extends Component {
  
 
@@ -18,7 +21,7 @@ class App extends Component {
   
   
   getBinary = (e) =>{
-        this.setState({
+      this.setState({
         binary:e.target.value
       })
     
@@ -30,19 +33,22 @@ class App extends Component {
     let validatedValue = Validate(this.state.binary);
     
     if(validatedValue === true){
-    let value = convert(this.state.binary);
-    this.setState({
-      decimalValue : value
-    })
-  }
+      let value = convert(this.state.binary);
+      this.setState({
+        decimalValue : value
+      })
+    }
+
   else{
-    this.setState({
-      decimalValue : "",
-      error:"Enter either 0 or 1"
-    })
+      this.setState({
+        decimalValue : "",
+        error:"Enter either 0 or 1"
+      })
    this.clearInput();
   }
 }
+
+
  clearInput = () =>{
    this.setState({
      binary:""
@@ -55,7 +61,7 @@ class App extends Component {
       <div>
         <Header />
         <Input  Convert={this.Convert} getBinary={this.getBinary} binary={this.state.binary} decimalValue={this.state.decimalValue}  error={this.state.error}/>
-        {/* <Button Convert={this.Convert} /> */}
+       
       </div>
     );
   }
