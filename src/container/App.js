@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Input from '../components/Input/Input';
 import Validate from '../helper/Validate';
-import convert from '../helper/convert/convert';
+import convert from '../helper/convert';
 import Header from '../components/Header';
 class App extends Component {
  
