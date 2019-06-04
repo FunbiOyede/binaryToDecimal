@@ -9,7 +9,8 @@ class App extends Component {
 
   state = {
   binary:'',
-  decimalValue: ''
+  decimalValue: '',
+  error:''
   
   }
 
@@ -17,34 +18,43 @@ class App extends Component {
   
   
   getBinary = (e) =>{
-    let validatedValue = Validate(e.target.value);
-    // this.setState({
-    //   binary: validatedValue
-    // })
-    if(validatedValue === false){
-        console.log("Enter normal value");
-    }
-    else{
-      console.log("funbi")
-    }
-  }
-
-
-  Convert = () =>{
-    let value = convert(this.state.binary);
-      this.setState({
-        decimalValue: value
+        this.setState({
+        binary:e.target.value
       })
-
+    
   }
 
+
+  Convert = (e) =>{
+    e.preventDefault();
+    let validatedValue = Validate(this.state.binary);
+    
+    if(validatedValue === true){
+    let value = convert(this.state.binary);
+    this.setState({
+      decimalValue : value
+    })
+  }
+  else{
+    this.setState({
+      decimalValue : "",
+      error:"Enter either 0 or 1"
+    })
+   this.clearInput();
+  }
+}
+ clearInput = () =>{
+   this.setState({
+     binary:""
+   })
+ }
  
   render() {
     
     return (
       <div>
         <Header />
-        <Input  Convert={this.Convert} getBinary={this.getBinary} binary={this.state.binary} decimalValue={this.state.decimalValue}/>
+        <Input  Convert={this.Convert} getBinary={this.getBinary} binary={this.state.binary} decimalValue={this.state.decimalValue}  error={this.state.error}/>
         {/* <Button Convert={this.Convert} /> */}
       </div>
     );
