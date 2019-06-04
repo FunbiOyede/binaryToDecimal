@@ -19,7 +19,7 @@
     flex-direction: column;
 }
 
-.input{
+.input {
     width: 50%;
     font-size: 18px;
     margin-left: 10px;
@@ -29,6 +29,10 @@
     border-radius: 2px;
     background: #e0f0f0;
     outline: none;
+}
+
+.input:focus{
+    border: 1px solid rgba(216, 216, 0, 0.924);
 }
 
 .btn{

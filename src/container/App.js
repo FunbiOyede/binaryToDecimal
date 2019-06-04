@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Input from '../components/Input/Input';
-// import Button from '../components/Button/Button';
+import Validate from '../helper/Validate';
 import convert from '../helper/convert/convert';
 import Header from '../components/Header';
 class App extends Component {
@@ -17,9 +17,16 @@ class App extends Component {
   
   
   getBinary = (e) =>{
-    this.setState({
-      binary:e.target.value
-    })
+    let validatedValue = Validate(e.target.value);
+    // this.setState({
+    //   binary: validatedValue
+    // })
+    if(validatedValue === false){
+        console.log("Enter normal value");
+    }
+    else{
+      console.log("funbi")
+    }
   }
 
 
